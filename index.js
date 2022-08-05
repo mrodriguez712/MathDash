@@ -10,11 +10,11 @@ let subMin = document.getElementById("submin")
 let Prod = document.getElementById("factor")
 let Quo = document.getElementById("divi")
 
-let firstNum = Math.floor(Math.random() * 25);
-let secondNum = Math.floor(Math.random() * 20);
-let thirdNum = Math.floor(Math.random() * 15);
-let fourthNum = Math.floor(Math.random() * 10);
-let fifthNum = Math.floor(Math.random() * 5);
+let firstNum = Math.floor(Math.random() * 25) + 1;
+let secondNum = Math.floor(Math.random() * 25) + 1;
+let thirdNum = Math.floor(Math.random() * 20) + 1;
+let fourthNum = Math.floor(Math.random() * 15) + 1;
+let fifthNum = Math.floor(Math.random() * 10) + 1;
 
 newGame.addEventListener('click', function () {
     addEnd.textContent = firstNum + " + " + secondNum;
@@ -81,7 +81,7 @@ submitQ.addEventListener('click', function () {
     let correctAnswer = firstNum + secondNum
     let correctDiff = correctAnswer - thirdNum
     let correctProd = correctDiff * fourthNum
-    let correctQuo = correctProd / fifthNum
+    let correctQuo = Math.round(correctProd / fifthNum)
     let inputQuo = document.getElementById("quotient").value
     if (correctQuo.toString() === inputQuo) {
         alert("CORRECT")
