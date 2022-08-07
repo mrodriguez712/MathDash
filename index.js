@@ -28,84 +28,48 @@ function myFunction() {
 document.getElementById("sum").disabled = true
 document.getElementById("submit-sum").style.display = "none"
 
-resetBtn.addEventListener('click', function() {
-    document.getElementById("submit-sum").style.display = "none"
-    newGame.style.display = "inline"
-    
-    addDisplay.style.display = "inline"
-    subDisplay.style.display = "none"
-    multiDisplay.style.display = "none"
-    diviDisplay.style.display = "none"
-    
-    submitDiff.style.display = "inline"
-    submitProd.style.display = "inline"
-    submitQ.style.display = "inline"
-
-    firstNum = 0
-    secondNum = 0
-    thirdNum = 0
-    fourthNum = 0
-    fifthNum = 0
-
-    addEnd.textContent = "0 + 0"
-    document.getElementById("sum").value = ""
-    correctSum.textContent = "ADDITION"
-    document.getElementById("sum").disabled = true
-
-    subMin.textContent = "0 - 0"
-    document.getElementById("difference").value = ""
-    correctDifference.textContent = "SUBTRACTION"
-    document.getElementById("difference").disabled = false
-
-    Prod.textContent = "0 x 0"
-    document.getElementById("product").value = ""
-    correctProduct.textContent = "MULTIPLICATION"
-    document.getElementById("product").disabled = false
-
-    Quo.textContent = "0 / 0"
-    document.getElementById("quotient").value = ""
-    correctQuotient.textContent = "DIVISION"
-    document.getElementById("quotient").disabled = false     
-})
-
 newGame.addEventListener('click', function () {
-    document.getElementById("add").style.display = "inline"
-    document.getElementById("sum").disabled = false
-
     let firstNum = Math.floor(Math.random() * 20) + 1;
     let secondNum = Math.floor(Math.random() * 20) + 1;
     let thirdNum = Math.floor(Math.random() * 15) + 1;
     let fourthNum = Math.floor(Math.random() * 10) + 1;
     let fifthNum = Math.floor(Math.random() * 5) + 1;
 
-    addEnd.textContent = `${firstNum} + ${secondNum}`;
-    newGame.style.display = "none"
-    submitSum.style.display = "none"
-
     let inputSum = document.getElementById("sum")
     let inputDiff = document.getElementById("difference")
     let inputProd = document.getElementById("product")
     let inputQuo = document.getElementById("quotient")
-    inputSum.addEventListener('keypress', function(event){
-        if(event.key === "Enter") {
+
+    document.getElementById("add").style.display = "inline"
+    document.getElementById("sum").disabled = false
+
+    addEnd.textContent = `${firstNum} + ${secondNum}`;
+    newGame.style.display = "none"
+    submitSum.style.display = "none"
+
+    inputSum.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("submit-sum").click()
         }
     })
-    inputDiff.addEventListener('keypress', function(event){
-        if(event.key === "Enter") {
+
+    inputDiff.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("submit-diff").click()
         }
     })
-    inputProd.addEventListener('keypress', function(event){
-        if(event.key === "Enter") {
+
+    inputProd.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("submit-prod").click()
         }
     })
-    inputQuo.addEventListener('keypress', function(event){
-        if(event.key === "Enter") {
+
+    inputQuo.addEventListener('keypress', function (event) {
+        if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("submit-div").click()
         }
@@ -125,7 +89,6 @@ newGame.addEventListener('click', function () {
             document.getElementById("sum").disabled = true
             submitSum.style.display = "none"
         }
-
     })
 
     function findDiff() {
@@ -147,8 +110,6 @@ newGame.addEventListener('click', function () {
             correctDifference.textContent = `WRONG the correct answer is ${correctDiff}`
             document.getElementById("difference").disabled = true
             submitDiff.style.display = "none"
-            firstNum = 0
-            secondNum = 0
         }
     })
 
@@ -173,9 +134,6 @@ newGame.addEventListener('click', function () {
             correctProduct.textContent = `WRONG the correct answer is ${correctProd}`
             document.getElementById("product").disabled = true
             submitProd.style.display = "none"
-            firstNum = 0
-            secondNum = 0
-            thirdNum = 0
         }
     })
 
@@ -199,11 +157,47 @@ newGame.addEventListener('click', function () {
             correctQuotient.textContent = `WRONG the correct answer is ${correctQuo}`
             document.getElementById("quotient").disabled = true
             submitQ.style.display = "none"
-            firstNum = 0
-            secondNum = 0
-            thirdNum = 0
-            fourthNum = 0
         }
+    })
+
+    resetBtn.addEventListener('click', function () {
+        firstNum = 0
+        secondNum = 0
+        thirdNum = 0
+        fourthNum = 0
+        fifthNum = 0
+    
+        document.getElementById("submit-sum").style.display = "none"
+        newGame.style.display = "inline"
+    
+        addDisplay.style.display = "inline"
+        subDisplay.style.display = "none"
+        multiDisplay.style.display = "none"
+        diviDisplay.style.display = "none"
+    
+        submitDiff.style.display = "inline"
+        submitProd.style.display = "inline"
+        submitQ.style.display = "inline"
+    
+        addEnd.textContent = "0 + 0"
+        document.getElementById("sum").value = ""
+        correctSum.textContent = "ADDITION"
+        document.getElementById("sum").disabled = true
+    
+        subMin.textContent = "0 - 0"
+        document.getElementById("difference").value = ""
+        correctDifference.textContent = "SUBTRACTION"
+        document.getElementById("difference").disabled = false
+    
+        Prod.textContent = "0 x 0"
+        document.getElementById("product").value = ""
+        correctProduct.textContent = "MULTIPLICATION"
+        document.getElementById("product").disabled = false
+    
+        Quo.textContent = "0 / 0"
+        document.getElementById("quotient").value = ""
+        correctQuotient.textContent = "DIVISION"
+        document.getElementById("quotient").disabled = false
     })
 })
 
