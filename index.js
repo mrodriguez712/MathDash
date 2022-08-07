@@ -82,6 +82,35 @@ newGame.addEventListener('click', function () {
     newGame.style.display = "none"
     submitSum.style.display = "none"
 
+    let inputSum = document.getElementById("sum")
+    let inputDiff = document.getElementById("difference")
+    let inputProd = document.getElementById("product")
+    let inputQuo = document.getElementById("quotient")
+    inputSum.addEventListener('keypress', function(event){
+        if(event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("submit-sum").click()
+        }
+    })
+    inputDiff.addEventListener('keypress', function(event){
+        if(event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("submit-diff").click()
+        }
+    })
+    inputProd.addEventListener('keypress', function(event){
+        if(event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("submit-prod").click()
+        }
+    })
+    inputQuo.addEventListener('keypress', function(event){
+        if(event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("submit-div").click()
+        }
+    })
+
     submitSum.addEventListener('click', function () {
         let correctAnswer = firstNum + secondNum
         let inputSum = document.getElementById("sum").value
@@ -118,6 +147,8 @@ newGame.addEventListener('click', function () {
             correctDifference.textContent = `WRONG the correct answer is ${correctDiff}`
             document.getElementById("difference").disabled = true
             submitDiff.style.display = "none"
+            firstNum = 0
+            secondNum = 0
         }
     })
 
@@ -142,6 +173,9 @@ newGame.addEventListener('click', function () {
             correctProduct.textContent = `WRONG the correct answer is ${correctProd}`
             document.getElementById("product").disabled = true
             submitProd.style.display = "none"
+            firstNum = 0
+            secondNum = 0
+            thirdNum = 0
         }
     })
 
@@ -165,6 +199,10 @@ newGame.addEventListener('click', function () {
             correctQuotient.textContent = `WRONG the correct answer is ${correctQuo}`
             document.getElementById("quotient").disabled = true
             submitQ.style.display = "none"
+            firstNum = 0
+            secondNum = 0
+            thirdNum = 0
+            fourthNum = 0
         }
     })
 })
