@@ -14,6 +14,11 @@
     August 04, 2022 - VERSION 1.0
     - Answer to division is rounded off to whole number
     - Made sure all random values does not go 0
+    August 6, 2022 - VERSON 2.0
+    - NEW GAME random works
+    - NEW GAME button is hidden as you clicked the new game
+    - Work on RESET button
+    - Disabled INPUT field if wrong
  -->
 <body>
     <header>
@@ -23,16 +28,17 @@
     </header>
     
     <section class="addition">
-        <h1>ADDITION</h1>
+        <h1 id="correct-sum">ADDITION</h1>
         <div class="add-container">
             <div id="addend">0 + 0</div>
             <input type="number" placeholder="Enter your answer here..." id="sum" value="">
             <button id="submit-sum">=</button>
+            
         </div>
     </section>
     
     <section class="subtraction">
-        <h1>SUBTRACTION</h1>
+        <h1 id="correct-diff">SUBTRACTION</h1>
         <div class="sub-container">
             <div id="submin">0 + 0</div>
             <input type="number" placeholder="Enter your answer here..." id="difference" value="">
@@ -41,7 +47,7 @@
     </section>
 
     <section class="multiplication">
-        <h1>MULTIPLICATION</h1>
+        <h1 id="correct-prod">MULTIPLICATION</h1>
         <div class="multi-container">
             <div id="factor">0 + 0</div>
             <input type="number" placeholder="Enter your answer here..." id="product" value="">
@@ -50,7 +56,7 @@
     </section>
 
     <section class="division">
-        <h1>DIVISION</h1>
+        <h1 id="correct-quotient">DIVISION</h1>
         <h3>Answer is rounded off to whole number</h3>
         <div class="divi-container">
             <div id="divi">0 + 0</div>
@@ -60,7 +66,7 @@
     </section>
 
     <div class="start-game">
-        <button id="new-game">New Game</button>
+        <button id="new-game">Start Game</button>
     </div>
     <div>
         <button id="reset-btn">Reset</button>
