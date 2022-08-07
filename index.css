@@ -12,6 +12,11 @@ body {
     text-align: center;
 }
 
+#sub, 
+#multi,
+#divide {
+    display: none
+}
 
 #new-game {
     display: inline;
