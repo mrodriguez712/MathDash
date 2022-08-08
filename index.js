@@ -1,5 +1,6 @@
 const newGame = document.getElementById("new-game");
 const resetBtn = document.getElementById("reset-btn");
+const negativeBtn = document.getElementById("negative-sign")
 
 const submitSum = document.getElementById("submit-sum")
 const submitDiff = document.getElementById("submit-diff")
@@ -28,6 +29,8 @@ function myFunction() {
 document.getElementById("sum").disabled = true
 document.getElementById("submit-sum").style.display = "none"
 
+resetBtn.style.display = "none"
+
 newGame.addEventListener('click', function () {
     let firstNum = Math.floor(Math.random() * 20) + 1;
     let secondNum = Math.floor(Math.random() * 20) + 1;
@@ -46,6 +49,10 @@ newGame.addEventListener('click', function () {
     addEnd.textContent = `${firstNum} + ${secondNum}`;
     newGame.style.display = "none"
     submitSum.style.display = "none"
+
+    negativeBtn.addEventListener('click', function() {
+        
+    })
 
     inputSum.addEventListener('keypress', function (event) {
         if (event.key === "Enter") {
@@ -83,11 +90,13 @@ newGame.addEventListener('click', function () {
             correctSum.textContent = "CORRECT"
             addDisplay.style.display = "none"
             subDisplay.style.display = "inline"
+            resetBtn.style.display = "none"
             findDiff()
         } else {
             correctSum.textContent = `WRONG the correct answer is ${correctAnswer}`
             document.getElementById("sum").disabled = true
             submitSum.style.display = "none"
+            resetBtn.style.display = "inline"
         }
     })
 
@@ -101,15 +110,19 @@ newGame.addEventListener('click', function () {
         let correctAnswer = firstNum + secondNum
         let correctDiff = correctAnswer - thirdNum
         let inputDiff = document.getElementById("difference").value
+       
         if (correctDiff.toString() === inputDiff) {
             correctDifference.textContent = "CORRECT"
             subDisplay.style.display = "none"
             multiDisplay.style.display = "inline"
+            resetBtn.style.display = "none"
             findProd()
-        } else {
+        } 
+        else {
             correctDifference.textContent = `WRONG the correct answer is ${correctDiff}`
             document.getElementById("difference").disabled = true
             submitDiff.style.display = "none"
+            resetBtn.style.display = "inline"
         }
     })
 
@@ -129,11 +142,13 @@ newGame.addEventListener('click', function () {
             correctProduct.textContent = "CORRECT"
             multiDisplay.style.display = "none"
             diviDisplay.style.display = "inline"
+            resetBtn.style.display = "none"
             findQ()
         } else {
             correctProduct.textContent = `WRONG the correct answer is ${correctProd}`
             document.getElementById("product").disabled = true
             submitProd.style.display = "none"
+            resetBtn.style.display = "inline"
         }
     })
 
@@ -153,14 +168,18 @@ newGame.addEventListener('click', function () {
         let inputQuo = document.getElementById("quotient").value
         if (correctQuo.toString() === inputQuo) {
             correctQuotient.textContent = "CORRECT"
+            resetBtn.style.display = "inline"
         } else {
             correctQuotient.textContent = `WRONG the correct answer is ${correctQuo}`
             document.getElementById("quotient").disabled = true
             submitQ.style.display = "none"
+            resetBtn.style.display = "inline"
         }
     })
 
     resetBtn.addEventListener('click', function () {
+        resetBtn.style.display = "none"
+
         firstNum = 0
         secondNum = 0
         thirdNum = 0
