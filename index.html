@@ -22,7 +22,14 @@
     - Added ONFOCUS event for the SUBMITSUM be show/hidden
     August 7, 2022 - VERSION 1.2
     - Minor bug tweaks
+    - Added KEYPRESS method
+    August 8, 2022 - VERSION 1.3
+    - RESET button invisible until you finish the game or make a mistake.
+    - ***work on the negative for subDiff
+    -- ***add negative button
+    --- ***an answer of 0 should not be acceptable
  -->
+ 
 <body>
     <header>
         <div>
@@ -44,7 +51,8 @@
         <h1 id="correct-diff">SUBTRACTION</h1>
         <div class="sub-container">
             <div id="submin">0 + 0</div>
-            <input type="number" placeholder="Enter your answer here..." id="difference" value="">
+            <button id="negative-sign">-</button>
+            <input type="number" placeholder="Enter your answer here..." id="difference" value="This is some text">
             <button id="submit-diff">=</button>
         </div>    
     </section>
