@@ -12,6 +12,8 @@ body {
     text-align: center;
 }
 
+#add,
+#reset-btn,
 #sub, 
 #multi,
 #divide {
