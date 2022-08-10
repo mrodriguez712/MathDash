@@ -50,9 +50,7 @@ newGame.addEventListener('click', function () {
     newGame.style.display = "none"
     submitSum.style.display = "none"
 
-    negativeBtn.addEventListener('click', function() {
-        
-    })
+    document.getElementById("buttons").style.visibility = "visible"
 
     inputSum.addEventListener('keypress', function (event) {
         if (event.key === "Enter") {
@@ -97,6 +95,7 @@ newGame.addEventListener('click', function () {
             document.getElementById("sum").disabled = true
             submitSum.style.display = "none"
             resetBtn.style.display = "inline"
+            document.getElementById("buttons").style.visibility = "hidden"
         }
     })
 
@@ -110,19 +109,20 @@ newGame.addEventListener('click', function () {
         let correctAnswer = firstNum + secondNum
         let correctDiff = correctAnswer - thirdNum
         let inputDiff = document.getElementById("difference").value
-       
+
         if (correctDiff.toString() === inputDiff) {
             correctDifference.textContent = "CORRECT"
             subDisplay.style.display = "none"
             multiDisplay.style.display = "inline"
             resetBtn.style.display = "none"
             findProd()
-        } 
+        }
         else {
             correctDifference.textContent = `WRONG the correct answer is ${correctDiff}`
             document.getElementById("difference").disabled = true
             submitDiff.style.display = "none"
             resetBtn.style.display = "inline"
+            document.getElementById("buttons").style.visibility = "hidden"
         }
     })
 
@@ -149,6 +149,7 @@ newGame.addEventListener('click', function () {
             document.getElementById("product").disabled = true
             submitProd.style.display = "none"
             resetBtn.style.display = "inline"
+            document.getElementById("buttons").style.visibility = "hidden"
         }
     })
 
@@ -174,45 +175,46 @@ newGame.addEventListener('click', function () {
             document.getElementById("quotient").disabled = true
             submitQ.style.display = "none"
             resetBtn.style.display = "inline"
+            document.getElementById("buttons").style.visibility = "hidden"
         }
     })
 
     resetBtn.addEventListener('click', function () {
+        document.getElementById("buttons").style.visibility = "hidden"
         resetBtn.style.display = "none"
 
-        firstNum = 0
-        secondNum = 0
-        thirdNum = 0
-        fourthNum = 0
-        fifthNum = 0
-    
-        document.getElementById("submit-sum").style.display = "none"
+        firstNum = Math.floor(Math.random() * 20) + 1;
+        secondNum = Math.floor(Math.random() * 20) + 1;
+        thirdNum = Math.floor(Math.random() * 15) + 1;
+        fourthNum = Math.floor(Math.random() * 10) + 1;
+        fifthNum = Math.floor(Math.random() * 5) + 1;
+
         newGame.style.display = "inline"
-    
+
         addDisplay.style.display = "inline"
         subDisplay.style.display = "none"
         multiDisplay.style.display = "none"
         diviDisplay.style.display = "none"
-    
+
         submitDiff.style.display = "inline"
         submitProd.style.display = "inline"
         submitQ.style.display = "inline"
-    
+
         addEnd.textContent = "0 + 0"
         document.getElementById("sum").value = ""
         correctSum.textContent = "ADDITION"
         document.getElementById("sum").disabled = true
-    
+
         subMin.textContent = "0 - 0"
         document.getElementById("difference").value = ""
         correctDifference.textContent = "SUBTRACTION"
         document.getElementById("difference").disabled = false
-    
+
         Prod.textContent = "0 x 0"
         document.getElementById("product").value = ""
         correctProduct.textContent = "MULTIPLICATION"
         document.getElementById("product").disabled = false
-    
+
         Quo.textContent = "0 / 0"
         document.getElementById("quotient").value = ""
         correctQuotient.textContent = "DIVISION"
