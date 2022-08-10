@@ -12,8 +12,8 @@ body {
     text-align: center;
 }
 
-#add,
 #reset-btn,
+#add,
 #sub, 
 #multi,
 #divide {
@@ -22,4 +22,30 @@ body {
 
 #new-game {
     display: inline;
+}
+
+.start-game {
+    margin: 8px auto;
+}
+
+#addend,
+#submin,
+#factor,
+#divi {
+    margin: 5px auto;
+}
+
+.buttons {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4px;
+    width: 13%;
+    padding: 20px;
+    visibility: hidden;
+}
+
+.negative {
+    grid-column: 1/4;
+    grid-row: 1/ span 4;
+    height: auto;
 }
