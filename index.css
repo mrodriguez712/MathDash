@@ -9,6 +9,10 @@ colors  #c5d1eb
 body {
     margin: 0;
     padding: 0;
+    background-color: #1f2f16;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -17,7 +21,7 @@ body {
 #sub, 
 #multi,
 #divide {
-    display: none
+    display: none;
 }
 
 #new-game {
@@ -35,17 +39,25 @@ body {
     margin: 5px auto;
 }
 
-.buttons {
-    display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 4px;
-    width: 13%;
-    padding: 20px;
-    visibility: hidden;
-}
-
 .negative {
     grid-column: 1/4;
     grid-row: 1/ span 4;
     height: auto;
+}
+
+.MathDash-area {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: inset 6px 6px 6px 2px rgb(0, 0, 3, .3);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+#timer-el {
+    display: none;
+    font-size: 30px;
 }
