@@ -1,6 +1,5 @@
 const newGame = document.getElementById("new-game");
 const resetBtn = document.getElementById("reset-btn");
-const negativeBtn = document.getElementById("negative-sign")
 
 const submitSum = document.getElementById("submit-sum")
 const submitDiff = document.getElementById("submit-diff")
@@ -50,8 +49,6 @@ newGame.addEventListener('click', function () {
     newGame.style.display = "none"
     submitSum.style.display = "none"
 
-    document.getElementById("buttons").style.visibility = "visible"
-
     inputSum.addEventListener('keypress', function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
@@ -84,7 +81,7 @@ newGame.addEventListener('click', function () {
         let correctAnswer = firstNum + secondNum
         let inputSum = document.getElementById("sum").value
 
-        if (correctAnswer.toString() === inputSum) {
+        if (correctAnswer === Number(inputSum)) {
             correctSum.textContent = "CORRECT"
             addDisplay.style.display = "none"
             subDisplay.style.display = "inline"
@@ -95,7 +92,8 @@ newGame.addEventListener('click', function () {
             document.getElementById("sum").disabled = true
             submitSum.style.display = "none"
             resetBtn.style.display = "inline"
-            document.getElementById("buttons").style.visibility = "hidden"
+            document.getElementById('timer-el').style.display = "inline"
+            clearInterval(Interval);
         }
     })
 
@@ -110,7 +108,7 @@ newGame.addEventListener('click', function () {
         let correctDiff = correctAnswer - thirdNum
         let inputDiff = document.getElementById("difference").value
 
-        if (correctDiff.toString() === inputDiff) {
+        if (correctDiff === Number(inputDiff)) {
             correctDifference.textContent = "CORRECT"
             subDisplay.style.display = "none"
             multiDisplay.style.display = "inline"
@@ -122,7 +120,8 @@ newGame.addEventListener('click', function () {
             document.getElementById("difference").disabled = true
             submitDiff.style.display = "none"
             resetBtn.style.display = "inline"
-            document.getElementById("buttons").style.visibility = "hidden"
+            document.getElementById('timer-el').style.display = "inline"
+            clearInterval(Interval);
         }
     })
 
@@ -138,7 +137,7 @@ newGame.addEventListener('click', function () {
         let correctDiff = correctAnswer - thirdNum
         let correctProd = correctDiff * fourthNum
         let inputProd = document.getElementById("product").value
-        if (correctProd.toString() === inputProd) {
+        if (correctProd === Number(inputProd)) {
             correctProduct.textContent = "CORRECT"
             multiDisplay.style.display = "none"
             diviDisplay.style.display = "inline"
@@ -149,7 +148,8 @@ newGame.addEventListener('click', function () {
             document.getElementById("product").disabled = true
             submitProd.style.display = "none"
             resetBtn.style.display = "inline"
-            document.getElementById("buttons").style.visibility = "hidden"
+            document.getElementById('timer-el').style.display = "inline"
+            clearInterval(Interval);
         }
     })
 
@@ -165,22 +165,82 @@ newGame.addEventListener('click', function () {
         let correctAnswer = firstNum + secondNum
         let correctDiff = correctAnswer - thirdNum
         let correctProd = correctDiff * fourthNum
-        let correctQuo = Math.round(correctProd / fifthNum)
+        let correctQuo = correctProd / fifthNum
         let inputQuo = document.getElementById("quotient").value
-        if (correctQuo.toString() === inputQuo) {
+        if (correctQuo.toFixed(2) === Number(inputQuo)) {
             correctQuotient.textContent = "CORRECT"
+            document.getElementById("quotient").disabled = true
             resetBtn.style.display = "inline"
+            document.getElementById('timer-el').style.display = "inline"
+            clearInterval(Interval);
         } else {
             correctQuotient.textContent = `WRONG the correct answer is ${correctQuo}`
             document.getElementById("quotient").disabled = true
             submitQ.style.display = "none"
             resetBtn.style.display = "inline"
-            document.getElementById("buttons").style.visibility = "hidden"
+            document.getElementById('timer-el').style.display = "inline"
+            clearInterval(Interval);
         }
     })
 
+    // timer
+    var seconds = 00;
+    var tens = 00;
+    var minute = 00;
+    var appendTens = document.getElementById("tens")
+    var appendSeconds = document.getElementById("seconds")
+    var appendMinute = document.getElementById('minute');
+    var Interval;
+
+    function startTimer() {
+        tens++;
+
+        if (tens <= 9) {
+            appendTens.innerHTML = "0" + tens;
+        }
+
+        if (tens > 9) {
+            appendTens.innerHTML = tens;
+
+        }
+
+        if (tens > 99) {
+            console.log("seconds");
+            seconds++;
+            appendSeconds.innerHTML = "0" + seconds;
+            tens = 0;
+            appendTens.innerHTML = "0" + 0;
+        }
+
+        if (seconds > 9) {
+            appendSeconds.innerHTML = seconds;
+        }
+
+        if (seconds > 59) {
+            console.log("minute");
+            minute++;
+            appendMinute.innerHTML = "0" + minute;
+            tens = 0;
+            seconds = 0;
+            appendTens.innerHTML = "0" + 0;
+            appendSeconds.innerHTML = "0" + 0;
+        }
+    }
+
+    clearInterval(Interval);
+    Interval = setInterval(startTimer, 10);
+
     resetBtn.addEventListener('click', function () {
-        document.getElementById("buttons").style.visibility = "hidden"
+        document.getElementById('timer-el').style.display = "none"
+        
+        clearInterval(Interval);
+        tens = "00";
+        seconds = "00";
+        minute = "00";
+        appendTens.innerHTML = tens;
+        appendSeconds.innerHTML = seconds;
+        appendMinute.innerHTML = minute;
+
         resetBtn.style.display = "none"
 
         firstNum = Math.floor(Math.random() * 20) + 1;
