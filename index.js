@@ -251,7 +251,7 @@ newGame.addEventListener('click', function () {
 
         newGame.style.display = "inline"
 
-        addDisplay.style.display = "inline"
+        addDisplay.style.display = "none"
         subDisplay.style.display = "none"
         multiDisplay.style.display = "none"
         diviDisplay.style.display = "none"
