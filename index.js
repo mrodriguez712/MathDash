@@ -92,8 +92,8 @@ newGame.addEventListener('click', function () {
             document.getElementById("sum").disabled = true
             submitSum.style.display = "none"
             resetBtn.style.display = "inline"
-            document.getElementById('timer-el').style.display = "inline"
-            clearInterval(Interval);
+//             document.getElementById('timer-el').style.display = "inline"
+//             clearInterval(Interval);
         }
     })
 
@@ -120,8 +120,8 @@ newGame.addEventListener('click', function () {
             document.getElementById("difference").disabled = true
             submitDiff.style.display = "none"
             resetBtn.style.display = "inline"
-            document.getElementById('timer-el').style.display = "inline"
-            clearInterval(Interval);
+//             document.getElementById('timer-el').style.display = "inline"
+//             clearInterval(Interval);
         }
     })
 
@@ -148,8 +148,8 @@ newGame.addEventListener('click', function () {
             document.getElementById("product").disabled = true
             submitProd.style.display = "none"
             resetBtn.style.display = "inline"
-            document.getElementById('timer-el').style.display = "inline"
-            clearInterval(Interval);
+//             document.getElementById('timer-el').style.display = "inline"
+//             clearInterval(Interval);
         }
     })
 
@@ -171,15 +171,15 @@ newGame.addEventListener('click', function () {
             correctQuotient.textContent = "CORRECT"
             document.getElementById("quotient").disabled = true
             resetBtn.style.display = "inline"
-            document.getElementById('timer-el').style.display = "inline"
-            clearInterval(Interval);
+//             document.getElementById('timer-el').style.display = "inline"
+//             clearInterval(Interval);
         } else {
             correctQuotient.textContent = `WRONG the correct answer is ${correctQuo}`
             document.getElementById("quotient").disabled = true
             submitQ.style.display = "none"
             resetBtn.style.display = "inline"
-            document.getElementById('timer-el').style.display = "inline"
-            clearInterval(Interval);
+//             document.getElementById('timer-el').style.display = "inline"
+//             clearInterval(Interval);
         }
     })
 
@@ -227,8 +227,8 @@ newGame.addEventListener('click', function () {
 //         }
 //     }
 
-    clearInterval(Interval);
-    Interval = setInterval(startTimer, 10);
+//     clearInterval(Interval);
+//     Interval = setInterval(startTimer, 10);
 
     resetBtn.addEventListener('click', function () {
 //         document.getElementById('timer-el').style.display = "none"
