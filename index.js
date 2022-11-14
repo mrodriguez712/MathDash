@@ -184,62 +184,62 @@ newGame.addEventListener('click', function () {
     })
 
     // timer
-    var seconds = 00;
-    var tens = 00;
-    var minute = 00;
-    var appendTens = document.getElementById("tens")
-    var appendSeconds = document.getElementById("seconds")
-    var appendMinute = document.getElementById('minute');
-    var Interval;
+//     var seconds = 00;
+//     var tens = 00;
+//     var minute = 00;
+//     var appendTens = document.getElementById("tens")
+//     var appendSeconds = document.getElementById("seconds")
+//     var appendMinute = document.getElementById('minute');
+//     var Interval;
 
-    function startTimer() {
-        tens++;
+//     function startTimer() {
+//         tens++;
 
-        if (tens <= 9) {
-            appendTens.innerHTML = "0" + tens;
-        }
+//         if (tens <= 9) {
+//             appendTens.innerHTML = "0" + tens;
+//         }
 
-        if (tens > 9) {
-            appendTens.innerHTML = tens;
+//         if (tens > 9) {
+//             appendTens.innerHTML = tens;
 
-        }
+//         }
 
-        if (tens > 99) {
-            console.log("seconds");
-            seconds++;
-            appendSeconds.innerHTML = "0" + seconds;
-            tens = 0;
-            appendTens.innerHTML = "0" + 0;
-        }
+//         if (tens > 99) {
+//             console.log("seconds");
+//             seconds++;
+//             appendSeconds.innerHTML = "0" + seconds;
+//             tens = 0;
+//             appendTens.innerHTML = "0" + 0;
+//         }
 
-        if (seconds > 9) {
-            appendSeconds.innerHTML = seconds;
-        }
+//         if (seconds > 9) {
+//             appendSeconds.innerHTML = seconds;
+//         }
 
-        if (seconds > 59) {
-            console.log("minute");
-            minute++;
-            appendMinute.innerHTML = "0" + minute;
-            tens = 0;
-            seconds = 0;
-            appendTens.innerHTML = "0" + 0;
-            appendSeconds.innerHTML = "0" + 0;
-        }
-    }
+//         if (seconds > 59) {
+//             console.log("minute");
+//             minute++;
+//             appendMinute.innerHTML = "0" + minute;
+//             tens = 0;
+//             seconds = 0;
+//             appendTens.innerHTML = "0" + 0;
+//             appendSeconds.innerHTML = "0" + 0;
+//         }
+//     }
 
     clearInterval(Interval);
     Interval = setInterval(startTimer, 10);
 
     resetBtn.addEventListener('click', function () {
-        document.getElementById('timer-el').style.display = "none"
+//         document.getElementById('timer-el').style.display = "none"
         
-        clearInterval(Interval);
-        tens = "00";
-        seconds = "00";
-        minute = "00";
-        appendTens.innerHTML = tens;
-        appendSeconds.innerHTML = seconds;
-        appendMinute.innerHTML = minute;
+//         clearInterval(Interval);
+//         tens = "00";
+//         seconds = "00";
+//         minute = "00";
+//         appendTens.innerHTML = tens;
+//         appendSeconds.innerHTML = seconds;
+//         appendMinute.innerHTML = minute;
 
         resetBtn.style.display = "none"
 
